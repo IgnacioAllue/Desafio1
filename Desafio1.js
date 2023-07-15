@@ -1,58 +1,48 @@
  
 class ProductManager { 
-    
-    products;
-    #precioBaseGanancias
 
     constructor () {
         this.products = []
     }
 
-    getNewId(){
-        return this.products.length + 1;
-    }
-
     getProducts(){
-        console.log(this.products);
+        return this.products;
     }
 
     buscarProducts(id){
 
-        if (id) {
-            let products = this.products.find(elem => elem.id === id)  
+        let products = this.products.find(elem => elem.id === id)
+        if (products) {
+            id = 1
         } else {
-            console.log("No se encontro")
+            id = products[products.length-1].id+1
         }
         
         return products
     }
 
-    agregarProducts(nombre,descripcion,precio,img,codigo,stock){
+    agregarProducts(name,description,price,thumbnail,code,stock){
         let nuevoProducto = {
-            id: this.getNewId(),
-            nombre,
-            descripcion,
-            precio,
-            img,
-            codigo,
+            name,
+            description,
+            price,
+            thumbnail,
+            code,
             stock
         }
         
-        if (id, nombre, descripcion, precio, img, codigo, stock){
+        if (name, description, price, thumbnail, code, stock){
             this.products.push(nuevoProducto)
         }else {
             return console.log('Faltan productos a especificar')
         }
     }
-
-
 }
 
-const codigoExistente = this.products.find (product => product.codigo === codigo)
+const codigoExistente = this.products.find (elem => elem.code === code)
     if(codigoExistente){
         return console.log('Codigo ya existente, utilize otro')
     }
-
 
 let manager = new ProductManager()
 
