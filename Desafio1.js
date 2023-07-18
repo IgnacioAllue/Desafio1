@@ -34,13 +34,13 @@ class ProductManager {
             stock
         }
         this.products.push(newProduct)
+
+        const codigoExistente = this.products.find (products => products.code === code)
+        if(codigoExistente){
+            return console.log('Codigo ya existente, utilize otro')
+        }
     }
 }
-
-const codigoExistente = this.products.find (products => products.code === code)
-    if(codigoExistente){
-        return console.log('Codigo ya existente, utilize otro')
-    }
 
 const manager1 = new ProductManager()
 manager1.agregarProducts('Producto 1', 'Este producto es...', 700, 'Sin imagen', 25, 30 )
